@@ -1,0 +1,20 @@
+.que.essaymaxwords textarea.qtype_essaymaxwords_response {
+    width: 100%;
+}
+.que.essaymaxwords textarea.qtype_essaymaxwords_response.qtype_essaymaxwords_plain {
+    white-space: pre-wrap;
+    font: inherit;
+}
+.que.essaymaxwords textarea.qtype_essaymaxwords_response.qtype_essaymaxwords_monospaced {
+    white-space: pre;
+    font-family: Andale Mono, Monaco, Courier New, DejaVu Sans Mono, monospace;
+}
+.que.essaymaxwords .qtype_essaymaxwords_response {
+    min-height: 3em;
+}
+.que.essaymaxwords .qtype_essaymaxwords_response.readonly {
+    background-color: white;
+}
+.que.essaymaxwords div.qtype_essaymaxwords_response textarea {
+    width: 100%;
+}
