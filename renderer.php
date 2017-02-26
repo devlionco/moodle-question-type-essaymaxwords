@@ -67,14 +67,6 @@ class qtype_essaymaxwords_renderer extends qtype_renderer {
             }
         }
 
-        $result = '';
-        $result .= html_writer::tag('div', $question->format_questiontext($qa),
-                array('class' => 'qtext'));
-
-        $result .= html_writer::start_tag('div', array('class' => 'ablock'));                   
-        $result .= html_writer::tag('div', $answer, array('class' => 'answer'));        
-        $result .= html_writer::tag('div', $files, array('class' => 'attachments'));
-        $result .= html_writer::end_tag('div');
         
         $name_es_2 = 'answer';
         $inputname_es_2 = $qa->get_qt_field_name($name_es_2);
@@ -84,8 +76,19 @@ class qtype_essaymaxwords_renderer extends qtype_renderer {
         $min_words_es_2 = (!empty($qa->get_question()->responseminwords))?$qa->get_question()->responseminwords:0; 
         $question_name_es_2 = strip_tags($qa->get_question()->questiontext); 
                               
-        $error_max_words = 'Question '.$question_name_es_2.' '.get_string('responsemaxwords_message', 'qtype_essaymaxwords',$max_words_es_2);
-        $error_min_words = 'Question '.$question_name_es_2.' '.get_string('responseminwords_message', 'qtype_essaymaxwords',$min_words_es_2);
+        $error_max_words = get_string('responsemaxwords_message', 'qtype_essaymaxwords',$max_words_es_2);
+        $error_min_words = get_string('responseminwords_message', 'qtype_essaymaxwords',$min_words_es_2);        
+        
+        $result = '';
+        $result .= html_writer::tag('div', $question->format_questiontext($qa),
+                array('class' => 'qtext'));
+
+        $result .= html_writer::start_tag('div', array('class' => 'ablock'));                   
+        $result .= html_writer::tag('div', $answer, array('class' => 'answer'));        
+        $result .= html_writer::tag('div', $files, array('class' => 'attachments'));        
+        $result .= html_writer::start_tag('div', array('class' => 'message_error', 'id' => 'error_'.$inputname_es_2 . '_id', 'style' => 'color:red;'));        
+        $result .= html_writer::end_tag('div');                                             
+        $result .= html_writer::end_tag('div');
         
         if($max_words_es_2 * $min_words_es_2 == 0 || $max_words_es_2 >= $min_words_es_2)
         $result .= '<script>     
@@ -130,7 +133,7 @@ class qtype_essaymaxwords_renderer extends qtype_renderer {
                 
                 
                 function checkEditors(item_window){  
-                    var flag = 0;
+                    var flag = 0;  
                  
                     for (var i in item_window){
                     
@@ -142,18 +145,21 @@ class qtype_essaymaxwords_renderer extends qtype_renderer {
                         result_min = checkNumberOfWordsStringMin(item_window[i].min_words, TynyText);
                         result_max = checkNumberOfWordsStringMax(item_window[i].max_words, TynyText);
                         
-                        if(!result_min || !result_max){
+                        var error_block = document.getElementById("error_"+item_window[i].name+"_id");
+                        error_block.innerHTML = "";
                         
-                            if(!result_min && result_max){
-                                alert(item_window[i].min_error);
+                        if(!result_min || !result_max){
+                            
+                            if(!result_min && result_max){                                
+                                error_block.innerHTML = item_window[i].min_error;                                 
                             }
                             
-                            if(result_min && !result_max){
-                                alert(item_window[i].max_error);
+                            if(result_min && !result_max){                                
+                                error_block.innerHTML = item_window[i].max_error;
                             }
                             
-                            if(!result_min && !result_max){
-                                alert(item_window[i].min_error+"\n"+item_window[i].max_error);
+                            if(!result_min && !result_max){                                
+                                error_block.innerHTML = item_window[i].min_error+"<br>"+item_window[i].max_error;
                             }        
                             flag = 1;
                         }
