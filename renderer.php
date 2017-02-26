@@ -134,6 +134,7 @@ class qtype_essaymaxwords_renderer extends qtype_renderer {
                 
                 function checkEditors(item_window){  
                     var flag = 0;  
+                    var error_ids = [];
                  
                     for (var i in item_window){
                     
@@ -149,6 +150,8 @@ class qtype_essaymaxwords_renderer extends qtype_renderer {
                         error_block.innerHTML = "";
                         
                         if(!result_min || !result_max){
+                            
+                            error_ids.push("error_"+item_window[i].name+"_id");
                             
                             if(!result_min && result_max){                                
                                 error_block.innerHTML = item_window[i].min_error;                                 
@@ -166,7 +169,11 @@ class qtype_essaymaxwords_renderer extends qtype_renderer {
                                        
                     }
                     
-                    if(flag) return false;
+                    if(flag){ 
+                        var t = document.getElementById(error_ids[0]);
+                        t.parentNode.parentNode.scrollIntoView();                        
+                        return false;
+                    } 
                 
                     return true;
                 }
