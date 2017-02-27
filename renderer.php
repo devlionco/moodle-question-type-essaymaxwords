@@ -169,9 +169,11 @@ class qtype_essaymaxwords_renderer extends qtype_renderer {
                                        
                     }
                     
-                    if(flag){ 
-                        var t = document.getElementById(error_ids[0]);
-                        t.parentNode.parentNode.scrollIntoView();                        
+                    if(flag){
+                        if(error_ids.length){ 
+                            var t = document.getElementById(error_ids[0]);
+                            t.parentNode.parentNode.scrollIntoView();                        
+                        }
                         return false;
                     } 
                 
@@ -190,7 +192,14 @@ class qtype_essaymaxwords_renderer extends qtype_renderer {
                     
                     if(num == 0) return true;
                     
-                    if(arrWords.length > num) {                
+                    var length_res = 0;
+                    if(s.length == 0){
+                        length_res = 0;    
+                    }else{
+                        length_res = arrWords.length;    
+                    }                    
+                    
+                    if(length_res > num) {                
                         return false;
                     }
                     
@@ -209,7 +218,14 @@ class qtype_essaymaxwords_renderer extends qtype_renderer {
                     
                     if(num == 0) return true;
                     
-                    if(arrWords.length < num) {                
+                    var length_res = 0;
+                    if(s.length == 0){
+                        length_res = 0;    
+                    }else{
+                        length_res = arrWords.length;    
+                    }
+                    
+                    if(length_res < num) {                
                         return false;
                     }                   
 
