@@ -27,6 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->component = 'qtype_essaymaxwords';
 $plugin->version   = 2017052311;
 
-$plugin->requires  = 2017051900;
+$plugin->requires  = 2016052300;
 
 $plugin->maturity  = MATURITY_STABLE;
