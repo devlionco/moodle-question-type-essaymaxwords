@@ -26,7 +26,7 @@
 $string['responsemaxwords'] = 'הגבלת מס. מילים';
 $string['responsemaxwords_message'] = 'מספר מילים חייב להיות פחות מ {$a}';
 $string['responseminwords'] = 'הגבלת מס. מילים';
-$string['responsemminwords_message'] = 'מספר מילים חייב להיות פחות מ {$a}';
+$string['responseminwords_message'] = 'מספר מילים חייב להיות יותר מ {$a}';
 
 $string['maxwords_message_admin'] = 'מקסימום מילים חייבת להיות מספר';
 $string['maxwords_message_admin_help'] = 'מקסימום מילים חייבת להיות מספר';
@@ -37,3 +37,4 @@ $string['minwords_message_admin_help'] = 'מינימומ מילים חייבת �
 $string['minwords_positive_message_admin'] = 'מינימומ מילים חייבת להיות חיובי';
 
 $string['words_wrong_message_admin'] = 'מקסימום מילים חייבים להיות גדולות יותר מאשר מינימום מילים';
+
