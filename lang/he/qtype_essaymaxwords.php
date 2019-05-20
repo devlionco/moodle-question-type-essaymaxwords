@@ -22,12 +22,12 @@
  * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-$string['responsemaxwords'] = 'הגבלת מס. מילים';
+$string['pluginname'] = 'מאמר (שאלה פתוחה ארוכה) עם הגבלת מס. מילים';
+$string['responsemaxwords'] = ' הגבלת מס. מילים מקסימלי';
 $string['responsemaxwords_message'] = 'מספר מילים חייב להיות פחות מ {$a}';
-$string['responseminwords'] = 'הגבלת מס. מילים';
+$string['responseminwords'] = ' הגבלת מס. מילים מינימלי';
 $string['responseminwords_message'] = 'מספר מילים חייב להיות יותר מ {$a}';
-
+$string['pluginnameediting'] = 'הוספת שאלת מאמר ארוכה';
 $string['maxwords_message_admin'] = 'מקסימום מילים חייבת להיות מספר';
 $string['maxwords_message_admin_help'] = 'מקסימום מילים חייבת להיות מספר';
 $string['maxwords_positive_message_admin'] = 'מקסימום מילים חייבת להיות חיובי';
